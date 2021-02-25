@@ -22,7 +22,6 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
     
     func print(printable: Printable) {
         self.printable = printable
-        printerViewController.view.addSubview(printerViewController.webView)
         printerViewController.webView.loadHTMLString(printable.htmlRepresentation(), baseURL: nil)
     }
     
@@ -53,7 +52,7 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
             
             view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
             view.alpha = 0
-
+            self.view.addSubview(webView)
             let rootVC = UIApplication.shared.windows.first?.rootViewController
             rootVC?.addChild(self)
             rootVC?.view.insertSubview(self.view, at: 0)
