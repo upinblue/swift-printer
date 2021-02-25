@@ -8,10 +8,6 @@
 import Foundation
 import PDFKit
 
-public protocol PrintableCore {
-    
-}
-
 
 public protocol Printable: PrintableCore {
     func htmlRepresentation()->String
