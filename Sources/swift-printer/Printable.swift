@@ -20,8 +20,8 @@ public protocol Printable {
     /// Get's called when the print is done.
     var printableCompletionHandler: ((_ data: Data) -> Void)? { get set }
     
-    /// Instantiate this object ones. It will be used later on by the protocol.
-    var printerHelper: PrinterHelper { get }
+    /// Instantiate this object once, if you plan to print. It will be used later on by the protocol.
+    var printerHelper: PrinterHelper? { get }
     
     /// Prints the representation asynchronously to a PDF and calls the completion handler.
     /// By default there is no need for you to override this function. Just use the basic implementation.
@@ -34,7 +34,7 @@ public extension Printable {
     mutating func print(pdfData: @escaping (Data?) -> Void) {
         
         printableCompletionHandler = pdfData
-        printerHelper.print(printable: self)
+        printerHelper!.print(printable: self)
                 
     }
     
