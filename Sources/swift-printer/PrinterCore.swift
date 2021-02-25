@@ -14,7 +14,7 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
     
     private var printable: Printable?
     
-    override init() {
+    public override init() {
         super.init()
         
         printerViewController.view.alpha = 0
