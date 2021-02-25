@@ -26,6 +26,9 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
         printerViewController.webView.loadHTMLString(printable.htmlRepresentation(), baseURL: nil)
     }
     
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        Swift.print(error.localizedDescription)
+    }
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let renderer = UIPrintPageRenderer()
