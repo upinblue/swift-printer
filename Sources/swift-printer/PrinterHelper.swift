@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  PrinterHelper.swift
 //  
 //
 //  Created by Bastian Wirth on 24.02.21.
@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-public class PrinterCore: NSObject, WKNavigationDelegate {
+public class PrinterHelper: NSObject, WKNavigationDelegate {
 
     private let printerViewController = PrinterViewController()
     
