@@ -21,7 +21,7 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
         printerViewController.webView.navigationDelegate = self
     }
     
-    public func print(printable: Printable) {
+    func print(printable: Printable) {
         self.printable = printable
         printerViewController.webView.loadHTMLString(printable.htmlRepresentation(), baseURL: nil)
     }

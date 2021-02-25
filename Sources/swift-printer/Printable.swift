@@ -23,12 +23,7 @@ public protocol Printable {
 
 
 public extension Printable {
-    var printer: PrinterCore {
-        get {
-            return PrinterCore()
-        }
-    }
-    
+
     mutating func print(pdfData: @escaping (Data?) -> Void) {
         
         printableCompletionHandler = pdfData
