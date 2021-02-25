@@ -17,6 +17,7 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
     override init() {
         super.init()
         
+        printerViewController.view.alpha = 0
         printerViewController.webView.navigationDelegate = self
     }
     
@@ -51,7 +52,6 @@ public class PrinterCore: NSObject, WKNavigationDelegate {
             super.viewDidLoad()
             
             view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            view.alpha = 0
             self.view.addSubview(webView)
             let rootVC = UIApplication.shared.windows.first?.rootViewController
             rootVC?.addChild(self)
