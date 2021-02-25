@@ -24,7 +24,7 @@ public protocol Printable: PrintableCore {
 }
 
 
-extension Printable {
+public extension Printable {
     
     
     mutating func print(pdfData: @escaping (Data?) -> Void) {
