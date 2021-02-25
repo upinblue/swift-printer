@@ -9,25 +9,29 @@ import Foundation
 import PDFKit
 
 
-public protocol Printable: PrintableCore {
+public protocol Printable {
     func htmlRepresentation()->String
     
     func printableDocumentMetadata()->PrintableDocumentMetadata?
     
     var printableCompletionHandler: ((_ data: Data) -> Void)? { get set }
     
+    var printer: PrinterCore { get }
+    
     mutating func print(pdfData: @escaping (Data?) -> Void)
 }
 
 
 public extension Printable {
-    
+    var printer: PrinterCore {
+        get {
+            return PrinterCore()
+        }
+    }
     
     mutating func print(pdfData: @escaping (Data?) -> Void) {
         
         printableCompletionHandler = pdfData
-        
-        let printer = PrinterCore()
         printer.print(printable: self)
                 
     }
